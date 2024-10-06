@@ -1,0 +1,61 @@
+
+body{
+  margin:0;  
+  padding:0;
+
+}
+.outer{
+   text-align: center;
+   padding:20px;
+}
+.page{
+   width:800px;
+   height:95vh;
+   display: inline-block;
+   text-align:left;
+   padding:10px;
+   background-color: white;
+}
+.topofpage{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 100px;
+    
+}
+.logo{
+  display:inline-flex;
+  scale: 25%;
+  text-align: left;
+
+}
+.navbar{
+
+}
+a{
+  color:black;
+  font-size:16px;
+  font-weight: bold;
+  text-decoration: none;
+  margin-right:50px;
+}
+
+a:hover {
+  color:#666666;  
+ }
+  a:active {
+  color:#CCC;
+}
+.nav{
+  font-family: sans-serif;
+  margin-left:15px;
+  margin-top:15px;
+  text-align: right;
+  display: flex;
+  flex-direction: row;
+  justify-content: center
+  flex-wrap: nowrap
+}
+
+  
+	  
