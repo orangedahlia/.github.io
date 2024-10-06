@@ -27,6 +27,7 @@ body{
   display:inline-flex;
   scale: 25%;
   text-align: left;
+  max-width: 200px;
 
 }
 .navbar{
@@ -50,11 +51,12 @@ a:hover {
   font-family: sans-serif;
   margin-left:15px;
   margin-top:15px;
-  text-align: right;
+  text-align: left;
   display: flex;
   flex-direction: row;
-  justify-content: center
-  flex-wrap: nowrap
+  justify-content: center;
+  flex-wrap:nowrap;
+
 }
 
   
