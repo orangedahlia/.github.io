@@ -1,0 +1,2246 @@
+@font-face{font-display:swap;font-family:Noto IKEA;font-style:italic;font-weight:400;src:url(https://www.ikea.com/global/assets/fonts/woff2/noto-ikea-400i.latin-ext.f712872a.woff2) format("woff2");unicode-range:u+0100-02af,u+0304,u+0308,u+0329,u+1e00-1e9f,u+1ef2-1eff,u+2020,u+20a0-20ab,u+20ad-20c0,u+2113,u+2c60-2c7f,u+a720-a7ff}@font-face{font-display:swap;font-family:Noto IKEA;font-style:italic;font-weight:400;src:url(https://www.ikea.com/global/assets/fonts/woff2/noto-ikea-400i.latin.cc5c4513.woff2) format("woff2");unicode-range:u+00??,u+0131,u+0152-0153,u+02bb-02bc,u+02c6,u+02da,u+02dc,u+0304,u+0308,u+0329,u+2000-206f,u+2074,u+20ac,u+2122,u+2191,u+2193,u+2212,u+2215,u+feff,u+fffd}@font-face{font-display:swap;font-family:Noto IKEA;font-style:italic;font-weight:700;src:url(https://www.ikea.com/global/assets/fonts/woff2/noto-ikea-700i.latin-ext.31f51f6c.woff2) format("woff2");unicode-range:u+0100-02af,u+0304,u+0308,u+0329,u+1e00-1e9f,u+1ef2-1eff,u+2020,u+20a0-20ab,u+20ad-20c0,u+2113,u+2c60-2c7f,u+a720-a7ff}@font-face{font-display:swap;font-family:Noto IKEA;font-style:italic;font-weight:700;src:url(https://www.ikea.com/global/assets/fonts/woff2/noto-ikea-700i.latin.29106970.woff2) format("woff2");unicode-range:u+00??,u+0131,u+0152-0153,u+02bb-02bc,u+02c6,u+02da,u+02dc,u+0304,u+0308,u+0329,u+2000-206f,u+2074,u+20ac,u+2122,u+2191,u+2193,u+2212,u+2215,u+feff,u+fffd}@font-face{font-display:swap;font-family:Noto IKEA;font-style:normal;font-weight:400;src:url(https://www.ikea.com/global/assets/fonts/woff2/noto-ikea-400.latin-ext.5cb756a3.woff2) format("woff2");unicode-range:u+0100-02af,u+0304,u+0308,u+0329,u+1e00-1e9f,u+1ef2-1eff,u+2020,u+20a0-20ab,u+20ad-20c0,u+2113,u+2c60-2c7f,u+a720-a7ff}@font-face{font-display:swap;font-family:Noto IKEA;font-style:normal;font-weight:400;src:url(https://www.ikea.com/global/assets/fonts/woff2/noto-ikea-400.latin.bdf07f1d.woff2) format("woff2");unicode-range:u+00??,u+0131,u+0152-0153,u+02bb-02bc,u+02c6,u+02da,u+02dc,u+0304,u+0308,u+0329,u+2000-206f,u+2074,u+20ac,u+2122,u+2191,u+2193,u+2212,u+2215,u+feff,u+fffd}@font-face{font-display:swap;font-family:Noto IKEA;font-style:normal;font-weight:700;src:url(https://www.ikea.com/global/assets/fonts/woff2/noto-ikea-700.latin-ext.4b9e6f99.woff2) format("woff2");unicode-range:u+0100-02af,u+0304,u+0308,u+0329,u+1e00-1e9f,u+1ef2-1eff,u+2020,u+20a0-20ab,u+20ad-20c0,u+2113,u+2c60-2c7f,u+a720-a7ff}@font-face{font-display:swap;font-family:Noto IKEA;font-style:normal;font-weight:700;src:url(https://www.ikea.com/global/assets/fonts/woff2/noto-ikea-700.latin.18112348.woff2) format("woff2");unicode-range:u+00??,u+0131,u+0152-0153,u+02bb-02bc,u+02c6,u+02da,u+02dc,u+0304,u+0308,u+0329,u+2000-206f,u+2074,u+20ac,u+2122,u+2191,u+2193,u+2212,u+2215,u+feff,u+fffd}:root{--ikea-font:"Noto IKEA","Noto Sans","Roboto","Open Sans",system-ui,sans-serif!important;font-family:var(--ikea-font)}@charset "UTF-8";
+:root {
+  /** General css variables for template layout
+    * Do not make SCSS-variables for these, use the CSS-variables directly.
+    * We can override each variable in templates if needed, these are only defaults.
+  */
+  --container-max-width: 90rem;
+  --container-spacing-desktop: 1.5rem;
+  --container-spacing-tablet: 1rem;
+  --container-spacing-mobile: 1rem;
+  --vertical-spacing-desktop: 10.5rem;
+  --vertical-spacing-tablet: 5rem;
+  --vertical-spacing-mobile: 4rem;
+  --grid-gap: 1.5rem;
+  --grid-gap-mobile: 1rem;
+  --radius: 0.5rem;
+  /* For focus visible, used in base.scss */
+  --focus-visible-relative-for-accessibility: relative;
+  /* To be used for LTR (default) */
+  --text-x-direction: 1;
+  /* General colors */
+  --color-logo: #fae6e6;
+  --color-background: #fffefb;
+  --color-border: #f0ede8;
+  --color-footer: #806e6e;
+  --color-light: #ffffff;
+  /* Ikea colors */
+  --color-ikea-blue: #0058a3;
+  --color-ikea-yellow: #ffdb00;
+  --color-ikea-yellow-hover: #ffe53a;
+  --color-ikea-yellow-light: #fff094;
+  /* Text colors */
+  --color-text-dark: rgba(0, 0, 0, 0.74);
+  --color-text-darker: #111111;
+  --color-text-black: #000;
+  /* Grayscale colors */
+  --color-grey: #dfdfdf;
+  --color-grey-dark: #999999;
+}
+
+[dir=rtl] {
+  /* To use RTL out of the box. Make the RTL be -1. This is then used when we need negative values. */
+  --text-x-direction: -1;
+}
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+img,
+svg {
+  display: block;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+main {
+  display: block;
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* ---- COMMON ----- */
+html,
+body,
+#mountId {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--background-color, var(--color-background));
+  color: var(--text-color, var(--color-text-darker));
+  overflow-x: hidden; /* To remove the horizontal scroll */
+  letter-spacing: normal;
+  word-spacing: normal;
+  line-height: normal;
+  height: auto;
+}
+
+/*
+ * Utility class to hide content visually while keeping it screen reader-accessible.
+ * Source: https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html
+ */
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+  height: 0.0625rem;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 0.0625rem;
+}
+
+input,
+textarea,
+button {
+  font-family: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+a,
+button {
+  position: var(--focus-visible-relative-for-accessibility);
+}
+
+/* Focus outline polyfill - https://www.npmjs.com/package/focus-visible */
+.js-focus-visible :focus:not(.focus-visible) {
+  outline: none !important;
+}
+
+.js-focus-visible .focus-visible {
+  outline: none !important;
+}
+.js-focus-visible .focus-visible:before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  outline: none !important;
+  box-shadow: inset 0 0 0 0.0625rem #111, inset 0 0 0 0.1875rem #fff, inset 0 0 0 0.25rem #111 !important;
+  transition: box-shadow 0.2s ease-out;
+}
+.js-focus-visible .focus-visible.round-focus-visible:before, .js-focus-visible .focus-visible.global-iconbtn:before {
+  border-radius: 50%;
+}
+.js-focus-visible .focus-visible.btn-focus-visible:before {
+  border-radius: 1.75rem;
+}
+
+/* FONT PATCH */
+/* MEDIA QUERIES */
+/* FONT PATCH */
+/* MEDIA QUERIES */
+/* Mixin for container max width - keep mixin for global use */
+/* Mixin for container spacing - keep mixin for global use */
+/* Mixin for button medium style */
+/* Mixin for default button style */
+/* Mixin for primary color btn - keep mixin for global use */
+/* Mixin for secondary color btn - keep mixin for global use */
+/* Mixin for transparent color btn - keep mixin for global use */
+/* Mixin for disabled color btn - keep mixin for global use */
+/* Mixin for a colored line on ::before or ::after element to the left of text. Used in Home */
+/* Mixin for a colored line on ::before or ::after element to the bottom of text. Used in Home */
+:root {
+  --main-bg-onetrust: #ffffff;
+  --secondary-bg-onetrust: #f5f5f5;
+  --confirm-onetrust: #0058a3;
+  --link-onetrust: #3860be;
+  --dark-onetrust: #111;
+  --light-onetrust: #fff;
+  --light-dark-onetrust: #929292;
+  --border-onetrust: #ddd;
+  --box-border-radius: 0.5rem;
+  --content-border-radius: 0.125rem;
+}
+
+#onetrust-consent-sdk {
+  /* START COOKIE SETTINGS/PREFERENCE */
+}
+#onetrust-consent-sdk a {
+  color: currentColor;
+  text-decoration: underline;
+  position: relative;
+}
+#onetrust-consent-sdk a.focus-visible {
+  box-shadow: inset 0 0 0 0.0625rem #111, inset 0 0 0 0.1875rem #fff, inset 0 0 0 0.25rem #111 !important;
+  transition: box-shadow 0.2s ease-out;
+}
+#onetrust-consent-sdk a.focus-visible:before {
+  display: none;
+}
+#onetrust-consent-sdk #onetrust-banner-sdk.otFloatingRoundedCorner.otRelFont.ot-bottom-left {
+  background: var(--main-bg-onetrust);
+  width: auto;
+  max-width: 31.25rem;
+  box-shadow: 0 0.25rem 0.9375rem rgba(0, 0, 0, 0.1);
+  padding: 0;
+  left: 0.9375rem;
+  bottom: 0.9375rem;
+  right: 0.9375rem;
+  max-height: calc(100vh - var(--navigation-height, 80px));
+  /* Buttons start */
+}
+#onetrust-consent-sdk #onetrust-banner-sdk.otFloatingRoundedCorner.otRelFont.ot-bottom-left #onetrust-button-group-parent {
+  position: sticky;
+  bottom: 0;
+  background: linear-gradient(0deg, var(--main-bg-onetrust) 95%, transparent 100%);
+  box-sizing: border-box;
+  padding: 1.25rem 1.5625rem 1.875rem;
+}
+@media only screen and (max-width: 33.125rem) {
+  #onetrust-consent-sdk #onetrust-banner-sdk.otFloatingRoundedCorner.otRelFont.ot-bottom-left #onetrust-button-group-parent {
+    padding: 1.25rem 0.9375rem;
+  }
+}
+#onetrust-consent-sdk #onetrust-banner-sdk.otFloatingRoundedCorner.otRelFont.ot-bottom-left #onetrust-button-group-parent #onetrust-accept-btn-handler,
+#onetrust-consent-sdk #onetrust-banner-sdk.otFloatingRoundedCorner.otRelFont.ot-bottom-left #onetrust-button-group-parent #onetrust-reject-all-handler {
+  font-size: 0.75rem !important;
+  display: inline-block !important;
+  background: var(--dark-onetrust) !important;
+  border-radius: 2em !important;
+  border-color: var(--dark-onetrust) !important;
+  border-style: solid !important;
+  border-width: 0.0625rem !important;
+  color: var(--light-onetrust) !important;
+  letter-spacing: 0 !important;
+  margin: 0 !important;
+  padding: 1em 1.5em !important;
+  overflow: hidden !important;
+  text-decoration: none !important;
+  font-weight: bold !important;
+  height: 2.5rem !important;
+  line-height: 1;
+  position: relative;
+  width: 100% !important;
+}
+@media only screen and (max-width: 33.125rem) {
+  #onetrust-consent-sdk #onetrust-banner-sdk.otFloatingRoundedCorner.otRelFont.ot-bottom-left #onetrust-button-group-parent #onetrust-accept-btn-handler,
+  #onetrust-consent-sdk #onetrust-banner-sdk.otFloatingRoundedCorner.otRelFont.ot-bottom-left #onetrust-button-group-parent #onetrust-reject-all-handler {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+#onetrust-consent-sdk #onetrust-banner-sdk.otFloatingRoundedCorner.otRelFont.ot-bottom-left #onetrust-button-group-parent #onetrust-accept-btn-handler:hover,
+#onetrust-consent-sdk #onetrust-banner-sdk.otFloatingRoundedCorner.otRelFont.ot-bottom-left #onetrust-button-group-parent #onetrust-reject-all-handler:hover {
+  opacity: 1 !important;
+}
+#onetrust-consent-sdk #onetrust-banner-sdk.otFloatingRoundedCorner.otRelFont.ot-bottom-left #onetrust-button-group-parent #onetrust-accept-btn-handler:focus,
+#onetrust-consent-sdk #onetrust-banner-sdk.otFloatingRoundedCorner.otRelFont.ot-bottom-left #onetrust-button-group-parent #onetrust-reject-all-handler:focus {
+  outline: none;
+  opacity: 1 !important;
+}
+#onetrust-consent-sdk #onetrust-banner-sdk.otFloatingRoundedCorner.otRelFont.ot-bottom-left #onetrust-button-group-parent #onetrust-accept-btn-handler:focus::before,
+#onetrust-consent-sdk #onetrust-banner-sdk.otFloatingRoundedCorner.otRelFont.ot-bottom-left #onetrust-button-group-parent #onetrust-reject-all-handler:focus::before {
+  position: absolute;
+  box-sizing: border-box;
+  border: 0.125rem solid var(--color-text-darker);
+  border-radius: 2.5rem;
+  width: calc(100% + 0.25rem);
+  height: calc(100% + 0.25rem);
+  content: "";
+  top: -0.125rem;
+  left: -0.125rem;
+}
+#onetrust-consent-sdk #onetrust-banner-sdk.otFloatingRoundedCorner.otRelFont.ot-bottom-left #onetrust-button-group-parent #onetrust-reject-all-handler {
+  margin-top: 0.625rem !important;
+  margin-bottom: 0.625rem !important;
+}
+#onetrust-consent-sdk #onetrust-banner-sdk.otFloatingRoundedCorner.otRelFont.ot-bottom-left #onetrust-button-group-parent #onetrust-pc-btn-handler {
+  font-size: 0.75rem !important;
+  display: inline-block !important;
+  background: var(--dark-onetrust) !important;
+  border-radius: 2em !important;
+  border-color: var(--dark-onetrust) !important;
+  border-style: solid !important;
+  border-width: 0.0625rem !important;
+  color: var(--light-onetrust) !important;
+  letter-spacing: 0 !important;
+  margin: 0 !important;
+  padding: 1em 1.5em !important;
+  overflow: hidden !important;
+  text-decoration: none !important;
+  font-weight: bold !important;
+  height: 2.5rem !important;
+  line-height: 1;
+  position: relative;
+  width: 100% !important;
+}
+@media only screen and (max-width: 33.125rem) {
+  #onetrust-consent-sdk #onetrust-banner-sdk.otFloatingRoundedCorner.otRelFont.ot-bottom-left #onetrust-button-group-parent #onetrust-pc-btn-handler {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+#onetrust-consent-sdk #onetrust-banner-sdk.otFloatingRoundedCorner.otRelFont.ot-bottom-left #onetrust-button-group-parent #onetrust-pc-btn-handler:hover {
+  opacity: 1 !important;
+}
+#onetrust-consent-sdk #onetrust-banner-sdk.otFloatingRoundedCorner.otRelFont.ot-bottom-left #onetrust-button-group-parent #onetrust-pc-btn-handler:focus {
+  outline: none;
+  opacity: 1 !important;
+}
+#onetrust-consent-sdk #onetrust-banner-sdk.otFloatingRoundedCorner.otRelFont.ot-bottom-left #onetrust-button-group-parent #onetrust-pc-btn-handler:focus::before {
+  position: absolute;
+  box-sizing: border-box;
+  border: 0.125rem solid var(--color-text-darker);
+  border-radius: 2.5rem;
+  width: calc(100% + 0.25rem);
+  height: calc(100% + 0.25rem);
+  content: "";
+  top: -0.125rem;
+  left: -0.125rem;
+}
+#onetrust-consent-sdk #onetrust-banner-sdk.otFloatingRoundedCorner.otRelFont.ot-bottom-left #onetrust-policy-title {
+  line-height: 1.2;
+  font-size: 0.9625rem;
+  padding: 0 1.5625rem;
+  width: 100%;
+}
+@media only screen and (max-width: 33.125rem) {
+  #onetrust-consent-sdk #onetrust-banner-sdk.otFloatingRoundedCorner.otRelFont.ot-bottom-left #onetrust-policy-title {
+    padding: 0 0.625rem 0 1.25rem;
+  }
+}
+#onetrust-consent-sdk #onetrust-banner-sdk.otFloatingRoundedCorner.otRelFont.ot-bottom-left #onetrust-policy-text {
+  padding: 0.625rem 1.5625rem;
+  font-size: 0.875rem;
+}
+#onetrust-consent-sdk #onetrust-banner-sdk.otFloatingRoundedCorner.otRelFont.ot-bottom-left #onetrust-policy-text > a {
+  font-weight: 700;
+}
+@media only screen and (max-width: 33.125rem) {
+  #onetrust-consent-sdk #onetrust-banner-sdk.otFloatingRoundedCorner.otRelFont.ot-bottom-left #onetrust-policy-text {
+    padding: 0.625rem 0.9375rem 0.9375rem 1.25rem;
+  }
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel {
+  background: var(--main-bg-onetrust);
+  width: 100%;
+  max-width: 30rem;
+  font-size: 0.875rem;
+  padding: 0;
+  animation-duration: 0.2s;
+  animation-timing-function: cubic-bezier(0, 0, 0.1, 1);
+  box-shadow: 0 0.125rem 0.625rem -0.1875rem rgba(0, 0, 0, 0.1);
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .ot-pc-header {
+  height: 2.5rem;
+  padding: 0;
+  border-bottom: none;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .ot-pc-header #close-pc-btn-handler {
+  position: relative;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .ot-pc-header .ot-pc-logo,
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .ot-pc-footer-logo {
+  display: none;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel #ot-pc-content {
+  box-sizing: border-box;
+  top: 2.625rem;
+  width: 100%;
+  margin: 0;
+  padding: 0 0.9375rem 0 1.5625rem;
+  -ms-scroll-chaining: none;
+      overscroll-behavior: contain;
+}
+@media only screen and (max-width: 33.125rem) {
+  #onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel #ot-pc-content {
+    padding: 0 0.625rem 0 1.25rem;
+  }
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .ot-optout-signal {
+  display: flex;
+  align-items: center;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .ot-optout-signal .ot-optout-icon {
+  margin-bottom: 0.5rem;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel #ot-pc-title {
+  line-height: 1.44444;
+  font-size: 1.125rem;
+  margin-bottom: 0.625rem;
+  margin-top: 0;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel #ot-pc-desc {
+  margin-bottom: 1.875rem;
+  font-size: 0.875rem;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel #accept-recommended-btn-handler {
+  font-size: 0.75rem !important;
+  display: inline-block !important;
+  background: var(--dark-onetrust) !important;
+  border-radius: 2em !important;
+  border-color: var(--dark-onetrust) !important;
+  border-style: solid !important;
+  border-width: 0.0625rem !important;
+  color: var(--light-onetrust) !important;
+  letter-spacing: 0 !important;
+  margin: 0 !important;
+  padding: 1em 1.5em !important;
+  overflow: hidden !important;
+  text-decoration: none !important;
+  font-weight: bold !important;
+  height: 2.5rem !important;
+  line-height: 1;
+  position: relative;
+}
+@media only screen and (max-width: 33.125rem) {
+  #onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel #accept-recommended-btn-handler {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel #accept-recommended-btn-handler:hover {
+  opacity: 1 !important;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel #accept-recommended-btn-handler:focus {
+  outline: none;
+  opacity: 1 !important;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel #accept-recommended-btn-handler:focus::before {
+  position: absolute;
+  box-sizing: border-box;
+  border: 0.125rem solid var(--color-text-darker);
+  border-radius: 2.5rem;
+  width: calc(100% + 0.25rem);
+  height: calc(100% + 0.25rem);
+  content: "";
+  top: -0.125rem;
+  left: -0.125rem;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .ot-sdk-row.ot-cat-grp {
+  margin-top: 1.875rem;
+  padding: 1.875rem 0;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel #ot-category-title {
+  font-size: 1rem;
+  margin: 2rem 0 0;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .ot-tgl input + .ot-switch .ot-switch-nob {
+  background: var(--light-dark-onetrust);
+  width: 48px;
+  border: 0;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .ot-tgl input + .ot-switch .ot-switch-nob::before {
+  background: var(--light-onetrust);
+  bottom: 2px;
+  left: 2px;
+  transition: transform 0.1s linear;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .ot-tgl input + .ot-switch .ot-switch-nob::after {
+  position: absolute;
+  content: "";
+  transform: rotate(45deg);
+  box-sizing: content-box;
+  display: inline-block;
+  opacity: 1;
+  border: 0.1125rem solid var(--confirm-onetrust);
+  border-left: 0;
+  border-top: 0;
+  height: 0.40625rem;
+  width: 0.21875rem;
+  transition: all 0.1s linear;
+  left: 10px;
+  top: 8px;
+  opacity: 0;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .ot-tgl input:checked + .ot-switch .ot-switch-nob {
+  background: var(--confirm-onetrust);
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .ot-tgl input:checked + .ot-switch .ot-switch-nob::after {
+  opacity: 1;
+  left: 31px;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .ot-accordion-layout {
+  margin: 0;
+  padding: 0;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .ot-accordion-layout [id^=ot-header-id-] {
+  font-size: 0.875rem;
+  line-height: 1.7142;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .ot-accordion-layout .ot-acc-hdr .ot-always-active {
+  font-size: 0.875rem;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .ot-accordion-layout .ot-acc-hdr .ot-always-active::before {
+  position: absolute;
+  content: "";
+  transform: rotate(45deg);
+  box-sizing: content-box;
+  display: inline-block;
+  opacity: 1;
+  border: 0.1125rem solid var(--confirm-onetrust);
+  border-left: 0;
+  border-top: 0;
+  height: 0.40625rem;
+  width: 0.21875rem;
+  left: -0.625rem;
+  top: 0.375rem;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .ot-accordion-layout .ot-acc-grpcntr.ot-acc-txt {
+  background: var(--secondary-bg-onetrust);
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .ot-accordion-layout .ot-acc-grpcntr.ot-acc-txt .ot-acc-grpdesc.ot-category-desc {
+  padding: 0.9375rem 1.25rem 1.5625rem 1.25rem;
+  font-size: 0.875rem;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .ot-accordion-layout .ot-acc-grpcntr.ot-acc-txt .ot-hlst-cntr {
+  box-sizing: border-box;
+  padding: 0 1.25rem 1.5625rem;
+  width: 100%;
+  margin: 0;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .ot-accordion-layout .ot-acc-grpcntr.ot-acc-txt .ot-hlst-cntr .ot-link-btn {
+  font-size: 0.75rem !important;
+  display: inline-block !important;
+  background: var(--dark-onetrust) !important;
+  border-radius: 2em !important;
+  border-color: var(--dark-onetrust) !important;
+  border-style: solid !important;
+  border-width: 0.0625rem !important;
+  color: var(--light-onetrust) !important;
+  letter-spacing: 0 !important;
+  margin: 0 !important;
+  padding: 1em 1.5em !important;
+  overflow: hidden !important;
+  text-decoration: none !important;
+  font-weight: bold !important;
+  height: 2.5rem !important;
+  line-height: 1;
+  position: relative;
+}
+@media only screen and (max-width: 33.125rem) {
+  #onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .ot-accordion-layout .ot-acc-grpcntr.ot-acc-txt .ot-hlst-cntr .ot-link-btn {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .ot-accordion-layout .ot-acc-grpcntr.ot-acc-txt .ot-hlst-cntr .ot-link-btn:hover {
+  opacity: 1 !important;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .ot-accordion-layout .ot-acc-grpcntr.ot-acc-txt .ot-hlst-cntr .ot-link-btn:focus {
+  outline: none;
+  opacity: 1 !important;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .ot-accordion-layout .ot-acc-grpcntr.ot-acc-txt .ot-hlst-cntr .ot-link-btn:focus::before {
+  position: absolute;
+  box-sizing: border-box;
+  border: 0.125rem solid var(--color-text-darker);
+  border-radius: 2.5rem;
+  width: calc(100% + 0.25rem);
+  height: calc(100% + 0.25rem);
+  content: "";
+  top: -0.125rem;
+  left: -0.125rem;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .ot-pc-footer {
+  padding: 1.25rem 0;
+  box-sizing: border-box;
+  border: 0;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .ot-btn-container {
+  display: flex;
+  justify-content: space-between;
+}
+@media only screen and (max-width: 33.125rem) {
+  #onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .ot-btn-container {
+    flex-direction: column;
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
+  }
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .ot-btn-container .ot-pc-refuse-all-handler {
+  font-size: 0.75rem !important;
+  display: inline-block !important;
+  background: var(--dark-onetrust) !important;
+  border-radius: 2em !important;
+  border-color: var(--dark-onetrust) !important;
+  border-style: solid !important;
+  border-width: 0.0625rem !important;
+  color: var(--light-onetrust) !important;
+  letter-spacing: 0 !important;
+  margin: 0 !important;
+  padding: 1em 1.5em !important;
+  overflow: hidden !important;
+  text-decoration: none !important;
+  font-weight: bold !important;
+  height: 2.5rem !important;
+  line-height: 1;
+  position: relative;
+}
+@media only screen and (max-width: 33.125rem) {
+  #onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .ot-btn-container .ot-pc-refuse-all-handler {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .ot-btn-container .ot-pc-refuse-all-handler:hover {
+  opacity: 1 !important;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .ot-btn-container .ot-pc-refuse-all-handler:focus {
+  outline: none;
+  opacity: 1 !important;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .ot-btn-container .ot-pc-refuse-all-handler:focus::before {
+  position: absolute;
+  box-sizing: border-box;
+  border: 0.125rem solid var(--color-text-darker);
+  border-radius: 2.5rem;
+  width: calc(100% + 0.25rem);
+  height: calc(100% + 0.25rem);
+  content: "";
+  top: -0.125rem;
+  left: -0.125rem;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .ot-btn-container .save-preference-btn-handler.onetrust-close-btn-handler {
+  font-size: 0.75rem !important;
+  display: inline-block !important;
+  background: var(--dark-onetrust) !important;
+  border-radius: 2em !important;
+  border-color: var(--dark-onetrust) !important;
+  border-style: solid !important;
+  border-width: 0.0625rem !important;
+  color: var(--light-onetrust) !important;
+  letter-spacing: 0 !important;
+  margin: 0 !important;
+  padding: 1em 1.5em !important;
+  overflow: hidden !important;
+  text-decoration: none !important;
+  font-weight: bold !important;
+  height: 2.5rem !important;
+  line-height: 1;
+  position: relative;
+}
+@media only screen and (max-width: 33.125rem) {
+  #onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .ot-btn-container .save-preference-btn-handler.onetrust-close-btn-handler {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .ot-btn-container .save-preference-btn-handler.onetrust-close-btn-handler:hover {
+  opacity: 1 !important;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .ot-btn-container .save-preference-btn-handler.onetrust-close-btn-handler:focus {
+  outline: none;
+  opacity: 1 !important;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .ot-btn-container .save-preference-btn-handler.onetrust-close-btn-handler:focus::before {
+  position: absolute;
+  box-sizing: border-box;
+  border: 0.125rem solid var(--color-text-darker);
+  border-radius: 2.5rem;
+  width: calc(100% + 0.25rem);
+  height: calc(100% + 0.25rem);
+  content: "";
+  top: -0.125rem;
+  left: -0.125rem;
+}
+@media only screen and (max-width: 33.125rem) {
+  #onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .ot-btn-container .save-preference-btn-handler.onetrust-close-btn-handler {
+    margin-top: 0.625rem !important;
+  }
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .privacy-link:link, #onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .privacy-link:visited, #onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .privacy-link:hover, #onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .privacy-link:active,
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .privacy-notice-link:link,
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .privacy-notice-link:visited,
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .privacy-notice-link:hover,
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .privacy-notice-link:active {
+  color: var(--dark-onetrust);
+  font-weight: 700;
+  margin-left: 0;
+  text-decoration: underline;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel .privacy-link {
+  display: inline;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel #ot-pc-lst .ot-link-btn.back-btn-handler {
+  position: relative;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel #ot-pc-lst #filter-btn-handler {
+  background: var(--dark-onetrust);
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel #ot-pc-lst .ot-host-item {
+  padding: 0.9375rem;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel #ot-pc-lst .ot-host-item .ot-host-expand {
+  color: var(--link-onetrust);
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel #ot-pc-lst .ot-host-opts .ot-host-opt {
+  background: var(--secondary-bg-onetrust);
+  border-radius: var(--content-border-radius);
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel #ot-pc-lst .ot-host-opts .ot-host-opt .ot-host-info {
+  font-size: 0.875rem;
+  background-color: transparent;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel #ot-pc-lst .ot-host-opts .ot-host-opt .ot-host-info * {
+  font-size: 0.875rem;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel #ot-pc-lst #ot-pc-hdr #filter-apply-handler,
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel #ot-pc-lst #ot-pc-hdr #filter-cancel-handler,
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel #ot-pc-lst #ot-pc-hdr #clear-filters-handler {
+  font-size: 0.75rem !important;
+  display: inline-block !important;
+  background: var(--dark-onetrust) !important;
+  border-radius: 2em !important;
+  border-color: var(--dark-onetrust) !important;
+  border-style: solid !important;
+  border-width: 0.0625rem !important;
+  color: var(--light-onetrust) !important;
+  letter-spacing: 0 !important;
+  margin: 0 !important;
+  padding: 1em 1.5em !important;
+  overflow: hidden !important;
+  text-decoration: none !important;
+  font-weight: bold !important;
+  height: 2.5rem !important;
+  line-height: 1;
+  position: relative;
+}
+@media only screen and (max-width: 33.125rem) {
+  #onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel #ot-pc-lst #ot-pc-hdr #filter-apply-handler,
+  #onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel #ot-pc-lst #ot-pc-hdr #filter-cancel-handler,
+  #onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel #ot-pc-lst #ot-pc-hdr #clear-filters-handler {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel #ot-pc-lst #ot-pc-hdr #filter-apply-handler:hover,
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel #ot-pc-lst #ot-pc-hdr #filter-cancel-handler:hover,
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel #ot-pc-lst #ot-pc-hdr #clear-filters-handler:hover {
+  opacity: 1 !important;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel #ot-pc-lst #ot-pc-hdr #filter-apply-handler:focus,
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel #ot-pc-lst #ot-pc-hdr #filter-cancel-handler:focus,
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel #ot-pc-lst #ot-pc-hdr #clear-filters-handler:focus {
+  outline: none;
+  opacity: 1 !important;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel #ot-pc-lst #ot-pc-hdr #filter-apply-handler:focus::before,
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel #ot-pc-lst #ot-pc-hdr #filter-cancel-handler:focus::before,
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel #ot-pc-lst #ot-pc-hdr #clear-filters-handler:focus::before {
+  position: absolute;
+  box-sizing: border-box;
+  border: 0.125rem solid var(--color-text-darker);
+  border-radius: 2.5rem;
+  width: calc(100% + 0.25rem);
+  height: calc(100% + 0.25rem);
+  content: "";
+  top: -0.125rem;
+  left: -0.125rem;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel #ot-pc-lst #ot-pc-hdr #clear-filters-handler {
+  margin-bottom: 1.25rem !important;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel #ot-pc-lst #ot-pc-hdr #ot-fltr-cnt {
+  padding: 1.25rem;
+  border-radius: var(--box-border-radius);
+  height: auto;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel #ot-pc-lst #ot-pc-hdr .ot-fltr-btns {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.625rem;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel #ot-pc-lst #ot-pc-hdr .ot-fltr-btns > button {
+  flex: 1;
+}
+#onetrust-consent-sdk #onetrust-pc-sdk.otPcPanel #ot-pc-lst #ot-pc-hdr .ot-fltr-opts .ot-fltr-opt {
+  width: 100%;
+  margin-bottom: 1.25rem;
+  margin-left: 0;
+}
+
+/* FONT PATCH */
+/* MEDIA QUERIES */
+/* FONT PATCH */
+/* MEDIA QUERIES */
+/* Mixin for container max width - keep mixin for global use */
+/* Mixin for container spacing - keep mixin for global use */
+/* Mixin for button medium style */
+/* Mixin for default button style */
+/* Mixin for primary color btn - keep mixin for global use */
+/* Mixin for secondary color btn - keep mixin for global use */
+/* Mixin for transparent color btn - keep mixin for global use */
+/* Mixin for disabled color btn - keep mixin for global use */
+/* Mixin for a colored line on ::before or ::after element to the left of text. Used in Home */
+/* Mixin for a colored line on ::before or ::after element to the bottom of text. Used in Home */
+/* FONT PATCH */
+/* MEDIA QUERIES */
+:root {
+  --breadcrumbs-spacing-top: 2rem;
+  --breadcrumbs-spacing-bottom: 3rem;
+  --breadcrumbs-spacing-horizontal: var(--navigation-spacing-desktop, 1.5rem);
+  --breadcrumbs-text-color: var(--text-color, #111);
+  --breadcrumbs-background: var(--background-color, #fffefb);
+}
+@media screen and (max-width: 64rem) {
+  :root {
+    --breadcrumbs-spacing-horizontal: var(--navigation-spacing-tablet, 1rem);
+  }
+}
+@media screen and (max-width: 47.9375rem) {
+  :root {
+    --breadcrumbs-spacing-horizontal: var(--navigation-spacing-mobile, 1rem);
+  }
+}
+
+.breadcrumbs-wrapper {
+  color: var(--breadcrumbs-text-color);
+  background: var(--breadcrumbs-background);
+  box-sizing: border-box;
+  padding: 0.0625rem 0;
+}
+
+.breadcrumbs-container {
+  box-sizing: border-box;
+  max-width: var(--navigation-max-width, 1440px);
+  margin: var(--breadcrumbs-spacing-top) auto var(--breadcrumbs-spacing-bottom);
+  position: relative;
+}
+.breadcrumbs-container::before, .breadcrumbs-container::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: var(--breadcrumbs-spacing-horizontal);
+  height: 100%;
+  background: linear-gradient(to right, var(--breadcrumbs-background), rgba(255, 255, 255, 0));
+  pointer-events: none;
+  z-index: 1;
+}
+.breadcrumbs-container::after {
+  left: auto;
+  right: 0;
+  width: calc(2 * var(--breadcrumbs-spacing-horizontal));
+  background: linear-gradient(to left, var(--breadcrumbs-background), rgba(255, 255, 255, 0));
+}
+
+.breadcrumbs-inner {
+  padding: 0 calc(2 * var(--breadcrumbs-spacing-horizontal)) 0 var(--breadcrumbs-spacing-horizontal);
+  overflow: auto;
+  --scroll-track-color: rgba(128, 128, 128, 0.15);
+  --scroll-thumb-color: rgba(128, 128, 128, 0.3);
+}
+@media (hover: hover) and (pointer: fine) {
+  @supports not selector(::-webkit-scrollbar) {
+    .breadcrumbs-inner {
+      scrollbar-color: var(--scroll-thumb-color, var(--text-color, #111)) var(--scroll-track-color, rgba(17, 17, 17, 0.2));
+      scrollbar-width: thin;
+    }
+  }
+  .breadcrumbs-inner::-webkit-scrollbar {
+    height: 2.5rem;
+  }
+  .breadcrumbs-inner::-webkit-scrollbar-track {
+    background: linear-gradient(180deg, transparent 100%, var(--scroll-track-color, rgba(17, 17, 17, 0.2)) 45%, var(--scroll-track-color, rgba(17, 17, 17, 0.2)) 50%, transparent 50%);
+  }
+  .breadcrumbs-inner::-webkit-scrollbar-track:hover {
+    background: linear-gradient(180deg, transparent 45%, var(--scroll-track-color, rgba(17, 17, 17, 0.2)) 45%, var(--scroll-track-color, rgba(17, 17, 17, 0.2)) 50%, transparent 50%);
+  }
+  .breadcrumbs-inner::-webkit-scrollbar-thumb {
+    background-clip: content-box;
+    background: linear-gradient(180deg, transparent 0%, transparent 45%, var(--scroll-thumb-color, var(--text-color, #111)) 45%, var(--scroll-thumb-color, var(--text-color, #111)) 50%, transparent 50%);
+  }
+  .breadcrumbs-inner::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, transparent 45%, var(--scroll-thumb-color, var(--text-color, #111)) 45%, var(--scroll-thumb-color, var(--text-color, #111)) 50%, transparent 50%);
+  }
+}
+@media (hover: none) {
+  .breadcrumbs-inner {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  .breadcrumbs-inner::-webkit-scrollbar {
+    display: none;
+  }
+}
+.breadcrumbs-inner::before, .breadcrumbs-inner::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: var(--breadcrumbs-spacing-horizontal);
+  height: 2.5rem;
+  background: var(--breadcrumbs-background);
+  pointer-events: none;
+  z-index: 1;
+}
+.breadcrumbs-inner::after {
+  left: auto;
+  right: 0;
+}
+
+ol.breadcrumbs {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  font-size: 0.875rem;
+  line-height: 157.1%;
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+ol.breadcrumbs > li {
+  margin-right: 0.75rem;
+}
+ol.breadcrumbs > li,
+ol.breadcrumbs > li a {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+ol.breadcrumbs > li:last-of-type {
+  padding-right: calc(2 * var(--breadcrumbs-spacing-horizontal));
+}
+ol.breadcrumbs > li i {
+  display: flex;
+}
+ol.breadcrumbs > li.breadcrumbs-item--home i {
+  display: none;
+}
+ol.breadcrumbs > li.breadcrumbs-item--live-preview span {
+  cursor: help;
+}
+ol.breadcrumbs > li.breadcrumbs-item--current {
+  display: none;
+}
+ol.breadcrumbs > li.breadcrumbs-item--current span {
+  opacity: 0.7;
+}
+@media screen and (max-width: 47.9375rem) {
+  ol.breadcrumbs > li {
+    display: none;
+  }
+  ol.breadcrumbs > li:nth-last-of-type(2) {
+    display: flex;
+  }
+  ol.breadcrumbs > li:nth-last-of-type(2) svg {
+    transform: rotate(180deg);
+  }
+}
+ol.breadcrumbs > li a {
+  color: currentColor;
+  text-decoration: none;
+}
+ol.breadcrumbs > li svg {
+  display: inline-block;
+  fill: currentColor;
+  margin: 0 0.75rem 0 0;
+}
+
+/* FONT PATCH */
+/* MEDIA QUERIES */
+/* FONT PATCH */
+/* MEDIA QUERIES */
+/* Mixin for container max width - keep mixin for global use */
+/* Mixin for container spacing - keep mixin for global use */
+/* Mixin for button medium style */
+/* Mixin for default button style */
+/* Mixin for primary color btn - keep mixin for global use */
+/* Mixin for secondary color btn - keep mixin for global use */
+/* Mixin for transparent color btn - keep mixin for global use */
+/* Mixin for disabled color btn - keep mixin for global use */
+/* Mixin for a colored line on ::before or ::after element to the left of text. Used in Home */
+/* Mixin for a colored line on ::before or ::after element to the bottom of text. Used in Home */
+/*
+  Global helpers
+  Class .global-content should include all settings while we still utilize each class where we need them.
+  For example .global-content-links can be used onto parent of links only
+  While .global-content will have all settings in the future - links/lists etc..
+*/
+/* Links inside content */
+.global-content-links a,
+.global-content a {
+  color: currentColor;
+  text-decoration: underline;
+  position: relative;
+  /*
+    Focus visible helper
+    We need this as inline-text cannot have a before if it breaks onto two lines
+  */
+}
+.global-content-links a.focus-visible,
+.global-content a.focus-visible {
+  box-shadow: inset 0 0 0 0.0625rem #111, inset 0 0 0 0.1875rem #fff, inset 0 0 0 0.25rem #111 !important;
+  transition: box-shadow 0.2s ease-out;
+}
+.global-content-links a.focus-visible:before,
+.global-content a.focus-visible:before {
+  display: none;
+}
+
+/* Lists */
+.global-content-lists ul,
+.global-content-lists ol,
+.global-content ul,
+.global-content ol {
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+.global-content-lists ul li,
+.global-content-lists ol li,
+.global-content ul li,
+.global-content ol li {
+  margin-bottom: 0.5rem;
+}
+.global-content-lists ol li,
+.global-content ol li {
+  list-style-type: decimal;
+}
+.global-content-lists ol li::marker,
+.global-content ol li::marker {
+  font-weight: bold;
+}
+
+/* Font size */
+.h-jumbo {
+  font-size: 9.125rem;
+  line-height: 108%;
+  margin: 1rem 0;
+  font-weight: 700;
+  letter-spacing: -0.375rem;
+}
+@media screen and (max-width: 64rem) and (min-width: 48rem) {
+  .h-jumbo {
+    font-size: 6.375rem;
+    line-height: 108%;
+    margin: 1rem 0;
+    font-weight: 700;
+    letter-spacing: -0.2625rem;
+  }
+}
+@media screen and (max-width: 47.9375rem) {
+  .h-jumbo {
+    font-size: 4.5rem;
+    line-height: 108%;
+    margin: 1rem 0;
+    font-weight: 700;
+    letter-spacing: -0.115rem;
+  }
+}
+
+.h-xxl {
+  font-size: 6.375rem;
+  line-height: 108%;
+  margin: 1rem 0;
+  font-weight: 700;
+  letter-spacing: -0.2625rem;
+}
+@media screen and (max-width: 64rem) and (min-width: 48rem) {
+  .h-xxl {
+    font-size: 4.5rem;
+    line-height: 108%;
+    margin: 1rem 0;
+    font-weight: 700;
+    letter-spacing: -0.115rem;
+  }
+}
+@media screen and (max-width: 47.9375rem) {
+  .h-xxl {
+    font-size: 3.1875rem;
+    line-height: 108%;
+    margin: 1rem 0;
+    font-weight: 700;
+    letter-spacing: -0.0925rem;
+  }
+}
+
+.h-xl {
+  font-size: 4.5rem;
+  line-height: 108%;
+  margin: 1rem 0;
+  font-weight: 700;
+  letter-spacing: -0.115rem;
+}
+@media screen and (max-width: 64rem) {
+  .h-xl {
+    font-size: 3.1875rem;
+    line-height: 108%;
+    margin: 1rem 0;
+    font-weight: 700;
+    letter-spacing: -0.0925rem;
+  }
+}
+
+.h-l {
+  font-size: 3.1875rem;
+  line-height: 108%;
+  margin: 1rem 0;
+  font-weight: 700;
+  letter-spacing: -0.0925rem;
+}
+@media screen and (max-width: 47.9375rem) {
+  .h-l {
+    font-size: 2.25rem;
+    line-height: 120%;
+    margin: 1rem 0;
+    font-weight: 700;
+    letter-spacing: -0.06rem;
+  }
+}
+
+.h-m {
+  font-size: 2.25rem;
+  line-height: 120%;
+  margin: 1rem 0;
+  font-weight: 700;
+  letter-spacing: -0.06rem;
+}
+@media screen and (max-width: 47.9375rem) {
+  .h-m {
+    font-size: 1.5625rem;
+    line-height: 120%;
+    margin: 1rem 0;
+    font-weight: 700;
+    letter-spacing: -0.03375rem;
+  }
+}
+
+.h-s {
+  font-size: 1.5625rem;
+  line-height: 120%;
+  margin: 1rem 0;
+  font-weight: 700;
+  letter-spacing: -0.03375rem;
+}
+
+.h-xs {
+  font-size: 1.25rem;
+  line-height: normal;
+  margin: 1rem 0;
+  font-weight: 700;
+  letter-spacing: normal;
+}
+
+.thin {
+  font-weight: 300;
+}
+
+.p-statement-xl {
+  font-size: 4.5rem;
+  line-height: 120%;
+  margin: 0 0 1em 0;
+  font-weight: 400;
+  letter-spacing: -0.0525rem;
+}
+@media screen and (max-width: 47.9375rem) {
+  .p-statement-xl {
+    font-size: 3.1875rem;
+    line-height: 140%;
+    margin: 0 0 1em 0;
+    font-weight: 400;
+    letter-spacing: -0.06rem;
+  }
+}
+
+.p-statement-l {
+  font-size: 3.1875rem;
+  line-height: 140%;
+  margin: 0 0 1em 0;
+  font-weight: 400;
+  letter-spacing: -0.06rem;
+}
+@media screen and (max-width: 47.9375rem) {
+  .p-statement-l {
+    font-size: 2.25rem;
+    line-height: 140%;
+    margin: 0 0 1em 0;
+    font-weight: 400;
+    letter-spacing: -0.06rem;
+  }
+}
+
+.p-statement-m {
+  font-size: 2.25rem;
+  line-height: 140%;
+  margin: 0 0 1em 0;
+  font-weight: 400;
+  letter-spacing: -0.06rem;
+}
+@media screen and (max-width: 47.9375rem) {
+  .p-statement-m {
+    font-size: 1.5625rem;
+    line-height: 140%;
+    margin: 0 0 1em 0;
+    font-weight: 400;
+    letter-spacing: -0.015rem;
+  }
+}
+
+.p-statement-s {
+  font-size: 1.5625rem;
+  line-height: 140%;
+  margin: 0 0 1em 0;
+  font-weight: 400;
+  letter-spacing: -0.015rem;
+}
+
+.p-xxl {
+  font-size: 1.5625rem;
+  line-height: 162.5%;
+  margin: 0 0 1em 0;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.p-xl {
+  font-size: 1.25rem;
+  line-height: 162.5%;
+  margin: 0 0 1em 0;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.p-l {
+  font-size: 1rem;
+  line-height: 162.5%;
+  margin: 0 0 1em 0;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.p-m {
+  font-size: 0.875rem;
+  line-height: 157.1%;
+  margin: 0 0 1em 0;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.p-s {
+  font-size: 0.75rem;
+  line-height: 150%;
+  margin: 0 0 1em 0;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.p-meta-16 {
+  font-size: 1rem;
+  line-height: 140%;
+  margin: 0 0 1em 0;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.p-meta-16-bold {
+  font-size: 1rem;
+  line-height: 140%;
+  margin: 0 0 1em 0;
+  font-weight: 400;
+  letter-spacing: 0;
+  font-weight: 700;
+}
+
+.p-meta-14 {
+  font-size: 0.875rem;
+  line-height: 140%;
+  margin: 0 0 1em 0;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.p-meta-14-bold {
+  font-size: 0.875rem;
+  line-height: 140%;
+  margin: 0 0 1em 0;
+  font-weight: 400;
+  letter-spacing: 0;
+  font-weight: 700;
+}
+
+sup {
+  position: relative;
+  font-size: 0.625rem;
+  top: -0.375rem;
+  left: 0.125rem;
+}
+
+sub {
+  position: relative;
+  font-size: 0.625rem;
+  bottom: -0.125rem;
+  left: 0.125rem;
+}
+
+/* Font color */
+.text-bright {
+  color: var(--color-light);
+}
+
+/* Margins */
+.m-0 {
+  margin: 0;
+}
+
+/* Paddings */
+.pd-0 {
+  padding: 0;
+}
+
+/* Helper class for container max width */
+.container-max-width {
+  max-width: var(--container-max-width);
+  margin: auto;
+}
+
+/* Helper class for container spacing */
+.container-spacing {
+  box-sizing: border-box;
+  padding: 0 var(--container-spacing-desktop);
+}
+@media screen and (max-width: 64rem) {
+  .container-spacing {
+    padding: 0 var(--container-spacing-tablet);
+  }
+}
+@media screen and (max-width: 47.9375rem) {
+  .container-spacing {
+    padding: 0 var(--container-spacing-mobile);
+  }
+}
+
+/* Helper class for grid container setup */
+.grid-container-setup {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: auto;
+  grid-template-areas: var(--areas);
+  /*
+  Astro creates web-component wrappers for things that should be interactive
+  on the client. So we need to adjust child selectors to handle this as well.
+
+  Example:
+  <div class="grid-container-setup">
+    <astro-island> // <-- interactive component to be hydrated
+        // Server side rendered html
+    </astro-island>
+  </div>
+  */
+}
+.grid-container-setup > astro-island:nth-child(1) > *,
+.grid-container-setup > *:nth-child(1):not(astro-island) {
+  grid-area: a;
+}
+.grid-container-setup > astro-island:nth-child(2) > *,
+.grid-container-setup > *:nth-child(2):not(astro-island) {
+  grid-area: b;
+}
+.grid-container-setup > astro-island:nth-child(3) > *,
+.grid-container-setup > *:nth-child(3):not(astro-island) {
+  grid-area: c;
+}
+.grid-container-setup > astro-island:nth-child(4) > *,
+.grid-container-setup > *:nth-child(4):not(astro-island) {
+  grid-area: d;
+}
+.grid-container-setup > astro-island:nth-child(5) > *,
+.grid-container-setup > *:nth-child(5):not(astro-island) {
+  grid-area: e;
+}
+.grid-container-setup > astro-island:nth-child(6) > *,
+.grid-container-setup > *:nth-child(6):not(astro-island) {
+  grid-area: f;
+}
+.grid-container-setup > astro-island:nth-child(7) > *,
+.grid-container-setup > *:nth-child(7):not(astro-island) {
+  grid-area: g;
+}
+.grid-container-setup > astro-island:nth-child(8) > *,
+.grid-container-setup > *:nth-child(8):not(astro-island) {
+  grid-area: h;
+}
+
+/* Helper class for inner container vertical margins */
+.inner-container-vertical-margins {
+  /* To allow for grid-gaps to be denied */
+  margin-top: var(--layout-spacing-desktop, var(--vertical-spacing-desktop));
+}
+.inner-container-vertical-margins:first-of-type {
+  margin-top: var(--layout-spacing-desktop, 0);
+}
+@media screen and (max-width: 64rem) {
+  .inner-container-vertical-margins {
+    margin-top: var(--layout-spacing-tablet, var(--vertical-spacing-tablet, var(--vertical-spacing-desktop)));
+  }
+  .inner-container-vertical-margins:first-of-type {
+    margin-top: var(--layout-spacing-tablet, 0);
+  }
+}
+@media screen and (max-width: 47.9375rem) {
+  .inner-container-vertical-margins {
+    margin-top: var(--layout-spacing-mobile, var(--vertical-spacing-mobile));
+  }
+  .inner-container-vertical-margins:first-of-type {
+    margin-top: var(--layout-spacing-mobile, 0);
+  }
+}
+
+/* Global arrow hover container helper, put this onto the container of the arrow */
+@media screen and (min-width: 64.0625rem) and (pointer: fine) and (hover: hover) {
+  .global-arrow-hover-container:hover .global-hover-arrow {
+    transform: translateX(0) !important;
+    opacity: 1 !important;
+  }
+  .global-arrow-hover-container:hover .global-hover-title {
+    transform: translateX(var(--hover-width));
+  }
+}
+
+/* Helper class for medium button style. Keeping the mixin as it's good for :global cases. */
+.btn-style-medium {
+  box-sizing: border-box;
+  height: 3.5rem;
+  padding: 0 2rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  border: none;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 1.75rem;
+  font-weight: 800;
+  font-size: 0.875rem;
+  line-height: 143%;
+  position: relative;
+  z-index: 1;
+}
+
+/* Helper class for default button style. Keeping the mixin as it's good for :global cases.  */
+.btn-style-default {
+  box-sizing: border-box;
+  height: 3.5rem;
+  padding: 0 2rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  border: none;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 1.75rem;
+  font-weight: 800;
+  font-size: 0.875rem;
+  line-height: 143%;
+  position: relative;
+  z-index: 1;
+}
+@media screen and (max-width: 47.9375rem) {
+  .btn-style-default {
+    height: 2.5rem;
+    border-radius: 1.25rem;
+    padding: 0 1.5rem;
+    font-size: 0.75rem;
+    line-height: 133%;
+  }
+}
+
+/* Helper class for primary button color. Keeping the mixin as it's good for :global cases.  */
+.btn-color-primary {
+  background: var(--color-text-darker);
+  color: var(--color-light);
+}
+@media (hover: hover) and (pointer: fine) {
+  .btn-color-primary:hover {
+    background: #333333;
+  }
+  .btn-color-primary:active {
+    background: #000000;
+  }
+}
+
+/* Helper class for secondary button color. Keeping the mixin as it's good for :global cases.  */
+.btn-color-secondary {
+  background: var(--color-light);
+  color: var(--color-text-darker);
+}
+@media (hover: hover) and (pointer: fine) {
+  .btn-color-secondary:hover {
+    background: #f5f5f5;
+  }
+  .btn-color-secondary:active {
+    background: #dfdfdf;
+  }
+}
+
+/* Helper class for transparent button color. Keeping the mixin as it's good for :global cases.  */
+.btn-color-transparent {
+  background: transparent;
+  color: var(--color-text-darker);
+}
+@media (hover: hover) and (pointer: fine) {
+  .btn-color-transparent:hover {
+    background: #f5f5f5;
+  }
+  .btn-color-transparent:active {
+    background: #dfdfdf;
+  }
+}
+
+/* Helper class for disabled button color. Keeping the mixin as it's good for :global cases.  */
+.btn-color-disabled {
+  background: #dadada;
+  color: #818181;
+}
+@media (hover: hover) and (pointer: fine) {
+  .btn-color-disabled:hover, .btn-color-disabled:active {
+    background: #dadada;
+    color: #818181;
+    cursor: not-allowed;
+  }
+}
+
+.icon-btn-style-default {
+  box-sizing: border-box;
+  border: none;
+  overflow: hidden;
+  cursor: pointer;
+  pointer-events: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 3.5rem;
+  height: 3.5rem;
+}
+@media screen and (max-width: 47.9375rem) {
+  .icon-btn-style-default {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+/* From Skapa directly */
+.skapa-price-module {
+  color: rgb(var(--colour-text-and-icon-2, 72, 72, 72));
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.skapa-price-module .skapa-price-module__information {
+  margin-bottom: 0.5rem;
+}
+
+.skapa-price-module .skapa-price-module__energy-class,
+.skapa-price-module .skapa-price-module__current-price,
+.skapa-price-module .skapa-price-module__secondary-current-price {
+  margin-bottom: 0.25rem;
+}
+
+.skapa-price-module--bti .skapa-price-module__energy-class,
+.skapa-price-module--bti .skapa-price-module__current-price,
+.skapa-price-module--bti .skapa-price-module__secondary-current-price {
+  margin-bottom: calc(0.5rem + 0.08em);
+}
+
+.skapa-price-module__name {
+  font-size: 0.875rem;
+  line-height: 1.571;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: rgb(var(--colour-text-and-icon-1, 17, 17, 17));
+  order: 2;
+}
+
+.skapa-price-module__description {
+  display: block;
+  text-transform: none;
+  font-weight: 400;
+  order: 2;
+}
+
+.skapa-price-module__primary-currency-price {
+  line-height: 1;
+  order: 3;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.skapa-price-module__energy-class {
+  display: flex;
+  vertical-align: top;
+  line-height: 1;
+}
+
+.skapa-price-module__energy-class svg {
+  display: block;
+}
+
+.skapa-price-module__complete-price {
+  font-weight: 700;
+  color: rgb(var(--colour-text-and-icon-1, 17, 17, 17));
+  margin-bottom: 0.25rem;
+}
+
+.skapa-price-module__comparison-price {
+  display: block;
+  width: 100%;
+  color: rgb(var(--colour-text-and-icon-1, 17, 17, 17));
+  margin-bottom: 0.25rem;
+}
+
+.skapa-price-module__addon .price {
+  font-size: inherit;
+}
+
+.skapa-price-module__current-price {
+  font-size: 1.75rem;
+  margin-inline-end: 0.5rem;
+}
+
+.skapa-price-module .commercial-message {
+  order: 1;
+  margin-bottom: 0.25rem;
+}
+
+.skapa-price-module__small-icon {
+  vertical-align: top;
+  fill: rgb(var(--colour-text-and-icon-1, 17, 17, 17));
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.skapa-price-module__addons {
+  order: 4;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  margin-top: 0.25rem;
+}
+
+.skapa-price-module .commercial-message {
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.skapa-price-module__comparison-price .price {
+  font-size: 0.75rem;
+}
+
+.skapa-price-module__star {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.skapa-price-module__star--empty {
+  color: rgb(var(--colour-neutral-3, 223, 223, 223));
+}
+
+.skapa-price-module__chevron {
+  flex-shrink: 0;
+  border-left: 0.0625rem solid rgb(var(--colour-neutral-5, 146, 146, 146));
+  display: flex;
+  align-items: center;
+  padding: 0 0.25rem;
+  max-width: 2.0625rem;
+}
+
+.skapa-price-module__comparison-price-label {
+  font-weight: 700;
+  color: rgb(var(--colour-text-and-icon-1, 17, 17, 17));
+  display: inline-block;
+}
+
+.skapa-price-module__comparison-price-label,
+.skapa-price-module__family-label {
+  margin-inline-end: 1rem;
+}
+
+.skapa-price-module__list-addons {
+  flex-basis: 100%;
+}
+
+.skapa-price-module:not(.skapa-price-module--list).skapa-price-module--commercial-message-placeholder {
+  margin-top: 1.375rem;
+}
+
+.skapa-price-module--xsmall .commercial-message,
+.skapa-price-module--xsmall .skapa-price-module__comparison-price-label,
+.skapa-price-module--small .commercial-message,
+.skapa-price-module--small .skapa-price-module__comparison-price-label,
+.skapa-price-module--medium .commercial-message,
+.skapa-price-module--medium .skapa-price-module__comparison-price-label {
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.skapa-price-module--xsmall .skapa-price-module__complete-price,
+.skapa-price-module--xsmall .skapa-price-module__name {
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.skapa-price-module--xsmall .skapa-price-module__energy-class svg {
+  width: 4.0625rem;
+  height: 2.25rem;
+}
+
+.skapa-price-module--xsmall.skapa-price-module--tro .skapa-price-module__secondary-current-price,
+.skapa-price-module--xsmall .skapa-price-module__current-price {
+  font-size: 1.5rem;
+  line-height: 1.1;
+}
+
+.skapa-price-module--xsmall .skapa-price-module__secondary-current-price {
+  font-size: 1rem;
+}
+
+.skapa-price-module--small .skapa-price-module__complete-price,
+.skapa-price-module--small .skapa-price-module__name {
+  font-size: 0.875rem;
+  line-height: 1.571;
+}
+
+.skapa-price-module--small .skapa-price-module__energy-class svg {
+  width: 4.75rem;
+  height: 2.625rem;
+}
+
+.skapa-price-module--small.skapa-price-module--tro .skapa-price-module__secondary-current-price,
+.skapa-price-module--small .skapa-price-module__current-price {
+  font-size: 1.75rem;
+}
+
+.skapa-price-module--small .skapa-price-module__secondary-current-price {
+  font-size: 1.125rem;
+}
+
+.skapa-price-module--medium .skapa-price-module__complete-price,
+.skapa-price-module--medium .skapa-price-module__name {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.skapa-price-module--medium .skapa-price-module__energy-class svg {
+  width: 5.4375rem;
+  height: 3rem;
+}
+
+.skapa-price-module--medium.skapa-price-module--tro .skapa-price-module__secondary-current-price,
+.skapa-price-module--medium .skapa-price-module__current-price {
+  font-size: 2rem;
+}
+
+.skapa-price-module--medium .skapa-price-module__secondary-current-price {
+  font-size: 1.25rem;
+}
+
+.skapa-price-module--large .skapa-price-module__complete-price,
+.skapa-price-module--large .skapa-price-module__name {
+  font-size: 1.5rem;
+  line-height: 1.45;
+}
+
+.skapa-price-module--large .skapa-price-module__energy-class svg {
+  width: 8.1875rem;
+  height: 4.5rem;
+}
+
+.skapa-price-module--large.skapa-price-module--tro .skapa-price-module__secondary-current-price,
+.skapa-price-module--large .skapa-price-module__current-price {
+  font-size: 2.875rem;
+}
+
+.skapa-price-module--large .skapa-price-module__secondary-current-price {
+  font-size: 1.75rem;
+}
+
+.skapa-price-module--large .commercial-message,
+.skapa-price-module--large .skapa-price-module__comparison-price-label {
+  font-size: 0.875rem;
+  line-height: 1.571;
+}
+
+.skapa-price-module--xlarge .skapa-price-module__complete-price,
+.skapa-price-module--xlarge .skapa-price-module__name {
+  font-size: 2rem;
+  line-height: 1.375;
+}
+
+.skapa-price-module--xlarge .skapa-price-module__energy-class svg {
+  width: 10.875rem;
+  height: 6rem;
+}
+
+.skapa-price-module--xlarge.skapa-price-module--tro .skapa-price-module__secondary-current-price,
+.skapa-price-module--xlarge .skapa-price-module__current-price {
+  font-size: 4rem;
+}
+
+.skapa-price-module--xlarge .skapa-price-module__secondary-current-price {
+  font-size: 2.5rem;
+}
+
+.skapa-price-module--xlarge .commercial-message,
+.skapa-price-module--xlarge .skapa-price-module__comparison-price-label {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.skapa-price-module--large .skapa-price-module__energy-class,
+.skapa-price-module--large .skapa-price-module__current-price,
+.skapa-price-module--large .skapa-price-module__secondary-current-price,
+.skapa-price-module--xlarge .skapa-price-module__energy-class,
+.skapa-price-module--xlarge .skapa-price-module__current-price,
+.skapa-price-module--xlarge .skapa-price-module__secondary-current-price {
+  margin-bottom: 0.25rem;
+}
+
+.skapa-price-module--large.skapa-price-module--bti .skapa-price-module__energy-class,
+.skapa-price-module--large.skapa-price-module--bti .skapa-price-module__current-price,
+.skapa-price-module--large.skapa-price-module--bti .skapa-price-module__secondary-current-price,
+.skapa-price-module--xlarge.skapa-price-module--bti .skapa-price-module__energy-class,
+.skapa-price-module--xlarge.skapa-price-module--bti .skapa-price-module__current-price,
+.skapa-price-module--xlarge.skapa-price-module--bti .skapa-price-module__secondary-current-price {
+  margin-bottom: calc(0.75rem + 0.08em);
+}
+
+.skapa-price-module--large .skapa-price-module__addons,
+.skapa-price-module--xlarge .skapa-price-module__addons {
+  margin-top: 0.5rem;
+}
+
+.skapa-price-module--medium .skapa-price-module__current-price,
+.skapa-price-module--large .skapa-price-module__current-price,
+.skapa-price-module--xlarge .skapa-price-module__current-price {
+  margin-inline-end: 0.75rem;
+}
+
+.skapa-price-module--list {
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.skapa-price-module--list .skapa-price-module__name {
+  margin-bottom: 0.25rem;
+}
+
+.skapa-price-module--list .skapa-price-module__information {
+  position: relative;
+  padding: 0;
+  margin-inline-end: 1rem;
+  margin-bottom: 0;
+  flex: 1;
+}
+
+.skapa-price-module--list .skapa-price-module__comparison-price .price {
+  color: rgb(var(--colour-text-and-icon-2, 72, 72, 72));
+}
+
+.skapa-price-module--list .skapa-price-module__secondary-currency-price,
+.skapa-price-module--list .skapa-price-module__primary-currency-price {
+  line-height: 1;
+  display: block;
+}
+
+.skapa-price-module--list .skapa-price-module__comparison-price,
+.skapa-price-module--list .skapa-price-module__current-price {
+  margin-inline-end: 0;
+}
+
+.skapa-price-module--list .skapa-price-module__addons,
+.skapa-price-module--list .skapa-price-module__secondary-current-price,
+.skapa-price-module--list .skapa-price-module__energy-class {
+  margin-top: 0.25rem;
+}
+
+.skapa-price-module--list .skapa-price-module__energy-class {
+  margin-bottom: 0.5rem;
+}
+
+.skapa-price-module--list .skapa-price-module__secondary-current-price {
+  display: block;
+}
+
+.skapa-price-module--list .skapa-price-module__comparison-price {
+  order: 1;
+}
+
+.skapa-price-module--list .skapa-price-module__addons {
+  width: 100%;
+}
+
+.skapa-price-module--list.skapa-price-module--with-commercial-message {
+  padding-top: 1.375rem;
+}
+
+.skapa-price-module--list.skapa-price-module--with-commercial-message .commercial-message {
+  position: absolute;
+  top: -1.375rem;
+  white-space: nowrap;
+}
+
+.skapa-price-module--list.skapa-price-module--xsmall .skapa-price-module__secondary-current-price,
+.skapa-price-module--list.skapa-price-module--xsmall .skapa-price-module__comparison-price .price,
+.skapa-price-module--list.skapa-price-module--xsmall .skapa-price-module__current-price {
+  font-size: 0.75rem;
+}
+
+.skapa-price-module--list.skapa-price-module--xsmall .skapa-price-module__current-price {
+  line-height: 1.5;
+}
+
+.skapa-price-module--list.skapa-price-module--xsmall .skapa-price-module__energy-class svg {
+  width: 2rem;
+  height: 1.125rem;
+}
+
+.skapa-price-module--list.skapa-price-module--xsmall .commercial-message,
+.skapa-price-module--list.skapa-price-module--xsmall .skapa-price-module__comparison-price-label {
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.skapa-price-module--list.skapa-price-module--small .skapa-price-module__secondary-current-price,
+.skapa-price-module--list.skapa-price-module--small .skapa-price-module__comparison-price .price,
+.skapa-price-module--list.skapa-price-module--small .skapa-price-module__current-price {
+  font-size: 0.875rem;
+}
+
+.skapa-price-module--list.skapa-price-module--small .skapa-price-module__current-price {
+  line-height: 1.571;
+}
+
+.skapa-price-module--list.skapa-price-module--small .skapa-price-module__energy-class svg {
+  width: 2.5rem;
+  height: 1.375rem;
+}
+
+.skapa-price-module--list.skapa-price-module--small .commercial-message,
+.skapa-price-module--list.skapa-price-module--small .skapa-price-module__comparison-price-label {
+  font-size: 0.875rem;
+  line-height: 1.571;
+}
+
+.skapa-price-module--list.skapa-price-module--medium .skapa-price-module__secondary-current-price,
+.skapa-price-module--list.skapa-price-module--medium .skapa-price-module__comparison-price .price,
+.skapa-price-module--list.skapa-price-module--medium .skapa-price-module__current-price {
+  font-size: 1rem;
+}
+
+.skapa-price-module--list.skapa-price-module--medium .skapa-price-module__current-price {
+  line-height: 1.5;
+}
+
+.skapa-price-module--list.skapa-price-module--medium .skapa-price-module__energy-class svg {
+  width: 2.6875rem;
+  height: 1.5rem;
+}
+
+.skapa-price-module--list.skapa-price-module--medium .commercial-message,
+.skapa-price-module--list.skapa-price-module--medium .skapa-price-module__comparison-price-label {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.skapa-price-module--family-romania .skapa-price-module__current-price {
+  margin-bottom: 0.5rem;
+}
+
+.skapa-price-module--family-romania .skapa-price-module__regular-price {
+  margin-bottom: 0.25rem;
+}
+
+.skapa-price-module--family-romania .skapa-price-module__comparison-price-label {
+  margin-bottom: 0.25rem;
+}
+
+.skapa-price-module--family-romania.skapa-price-module--list .skapa-price-module__price,
+.skapa-price-module--family-romania.skapa-price-module--list .skapa-price-module__information {
+  flex-basis: 100%;
+}
+
+.skapa-price-module--family-romania.skapa-price-module--list .skapa-price-module__primary-currency-price {
+  display: flex;
+  justify-content: space-between;
+}
+
+.skapa-price-module--family-romania.skapa-price-module--list .commercial-message {
+  order: initial;
+}
+
+.skapa-price-module--family-romania.skapa-price-module--list .skapa-price-module__current-price,
+.skapa-price-module--family-romania.skapa-price-module--list .skapa-price-module__name {
+  margin-bottom: 0.25rem;
+}
+
+[dir=rtl] .skapa-price-module__star--half-filled {
+  transform: scaleX(-1);
+}
+
+/* These should probably be the sass file from Skapa */
+.skapa-price {
+  font-weight: 700;
+  line-height: 1;
+  font-size: 1.5rem;
+  position: relative;
+  color: rgb(var(--colour-text-and-icon-1, 17, 17, 17));
+}
+
+.skapa-price--subtle {
+  color: rgb(var(--colour-text-and-icon-2, 72, 72, 72));
+}
+
+.skapa-price__nowrap {
+  white-space: nowrap;
+}
+
+.skapa-price__currency,
+.skapa-price__decimal,
+.skapa-price__subscript {
+  font-size: 0.5em;
+  line-height: 1.3;
+}
+
+.skapa-price__subscript,
+.skapa-price__currency,
+.skapa-price__decimal {
+  position: relative;
+}
+
+.skapa-price__currency {
+  unicode-bidi: bidi-override;
+}
+
+.skapa-price__subscript {
+  display: inline-block;
+  unicode-bidi: isolate;
+}
+
+.skapa-price--currency-super-aligned .skapa-price__currency {
+  top: -0.727em;
+}
+
+.skapa-price--decimal-super-aligned .skapa-price__decimal {
+  top: -0.727em;
+}
+
+.skapa-price--large {
+  font-size: 2.25rem;
+}
+
+.skapa-price--bti-price {
+  display: inline-block;
+  color: rgb(var(--colour-static-black, 17, 17, 17));
+  padding: 0.2em 0.3em;
+  background: rgb(var(--colour-commercial-message-bti-yellow, 255, 219, 0));
+  box-shadow: 0.08em 0.08em 0 rgb(var(--colour-commercial-message-bti-red, 204, 0, 8));
+  font-style: normal;
+}
+
+.skapa-price--regular-font-weight {
+  font-weight: 400;
+}
+
+.skapa-price--strikeout .skapa-price__currency,
+.skapa-price--strikeout .skapa-price__decimal,
+.skapa-price--strikeout .skapa-price__integer {
+  text-decoration: line-through;
+}
+
+.skapa-price--fixed-size .skapa-price__subscript,
+.skapa-price--fixed-size .skapa-price__currency,
+.skapa-price--fixed-size .skapa-price__decimal,
+.skapa-price--strikeout .skapa-price__subscript,
+.skapa-price--strikeout .skapa-price__currency,
+.skapa-price--strikeout .skapa-price__decimal,
+.skapa-price--regular-font-weight .skapa-price__subscript,
+.skapa-price--regular-font-weight .skapa-price__currency,
+.skapa-price--regular-font-weight .skapa-price__decimal,
+.skapa-price--large.skapa-price--strikeout .skapa-price__subscript,
+.skapa-price--large.skapa-price--strikeout .skapa-price__currency,
+.skapa-price--large.skapa-price--strikeout .skapa-price__decimal {
+  font-size: 1em;
+  line-height: 1;
+  top: auto;
+}
+
+.skapa-price--small {
+  font-size: 1rem;
+}
+
+.skapa-price--small .skapa-price__subscript,
+.skapa-price--small .skapa-price__currency,
+.skapa-price--small .skapa-price__decimal {
+  font-size: 1em;
+  line-height: 1;
+  top: auto;
+}
+
+.skapa-price__sr-text {
+  position: absolute;
+  height: 0.0625rem;
+  width: 0.0625rem;
+  overflow: hidden;
+  clip: rect(0.0625rem, 0.0625rem, 0.0625rem, 0.0625rem);
+  margin: -0.0625rem;
+  white-space: nowrap;
+  left: 0;
+}
+
+.skapa-price--leading.skapa-price--currency-thin .skapa-price__currency::after {
+  content: " ";
+}
+
+.skapa-price--trailing.skapa-price--currency-thin .skapa-price__currency::before {
+  content: " ";
+}
+
+[dir=rtl] .skapa-price--leading.skapa-price--currency-thin .skapa-price__currency::before {
+  content: " ";
+}
+
+[dir=rtl] .skapa-price--leading.skapa-price--currency-thin .skapa-price__currency::after {
+  content: "";
+}
+
+[dir=rtl] .skapa-price--trailing.skapa-price--currency-thin .skapa-price__currency::before {
+  content: "";
+}
+
+[dir=rtl] .skapa-price--trailing.skapa-price--currency-thin .skapa-price__currency::after {
+  content: " ";
+}html.onetrust-box-closed #onetrust-banner-sdk{display:none;}
