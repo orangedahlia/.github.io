@@ -1,0 +1,189 @@
+
+body{
+  font-family: Noto, Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+  font-size: 16px;
+  background-color: white;
+  margin:0;  
+  padding:10;
+  font-weight: 400;
+
+}
+.outer{
+   text-align: left;
+   margin-left: 8px;
+   margin-right: 8px;
+
+}
+.page{
+	max-width: 1200px;
+	margin-top: 25px;
+	margin-left: 0px;
+	width: 50%;
+  height:50%;
+  display: inline-block;
+  background-color: white;
+	text-align: left;
+	text-justify: yes;
+	opacity:.6;
+	padding: 27px;
+}
+.topofpage{
+  position: sticky;
+	position: -webkit-sticky; /*Safari*/
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: center;
+	justify-content: flex-start;
+	height: 70px;
+	width: 100%;
+	top:10px;
+	z-index: 1000;
+	background-color: white;
+	opacity: .95;
+}
+.navbar{
+	display: flex;
+	flex-grow: 1;
+	text-align: left;
+	align-items: center;
+}
+.logo{
+	max-width: 200px;
+	text-align: left;
+	width: 100%;
+	height: auto;
+}
+.logoimg{
+	margin-top: 5px;
+	margin-left: 25px;
+	width: 50%;
+	padding-left: 10px;
+}
+
+a{
+  color:black;
+  font-size:16px;
+  font-weight: 600;
+  text-decoration: none;
+  margin-right:20px;
+}
+
+a:hover {
+  color:#3D4851;  
+ }
+  a:active {
+  color:#D8A400;
+}
+
+.content{
+	padding-left: 10px;
+	padding-right: 10px;
+	background-color: #dce7a3;
+	text-align: left;
+
+
+}
+
+.tile{
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 500px;
+	
+}
+.tilebg1{
+	background-image: url("img/livingroom3.jpg");
+}
+ 
+.tilebg2{
+	background-image: url("img/livingroom2.jpg");
+}
+	
+.tilebg3{
+	background-image: url("img/livingroom1.jpg");
+}
+
+.tilebg4{
+	background-image: url("img/sofaplanner.jpg");
+}
+
+.tilebg5{
+	background-image: url("img/emptyroom.jpg");
+}
+
+.tilebg6{
+	background-image: url("img/daffodils.jpg");
+}
+
+#menu{
+	display: none;
+	cursor:pointer;
+}
+
+/*.menu img{
+	width:50px;
+	padding: 10px;
+	display: inline-block;
+}*/
+
+#menu img{
+	width: 80px;
+	cursor: pointer;
+}
+
+#innermenu div{
+	display: none;
+	padding-bottom:50px;
+}
+
+#menuoverlay{
+	position: absolute;
+	top:0px;
+	background-color:#lightpink;
+	width: 60%;
+	height: 98vh;
+	display: none;
+	text-align: center;
+}
+
+#close{
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	font-size: 60px;
+	cursor: pointer;
+	display: none;
+}
+
+
+
+@media screen and (max-width: 768px){
+	
+	#menu{
+		display: inline-block;
+	}
+
+	.navbar{
+		display:none;
+	}
+	.logo{
+		display: none;
+	}
+}
+
+@media screen and (max-width:850px) and (max-width:1250px){
+		
+	}
+	.page{
+		max-width:800px; 
+	}
+	
+}
+
+@media screen and (max-width:1450px) and (max-width:1250px){
+	
+	.page{
+		max-width:1400px; 
+	}
+	
+}
